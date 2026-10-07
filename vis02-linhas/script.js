@@ -69,7 +69,9 @@ svg.selectAll(".nGrupo")
     .attr("text-anchor", "middle")
     .style("font-size", "11px")
     .style("fill", "#777")
-    .text(function(d) { return "n = " + d.n.toLocaleString("pt-BR"); });
+    .text(function(d) {
+      return d.n == null ? "" : "n = " + d.n.toLocaleString("pt-BR");
+    });
 
 svg.append("text")
   .attr("text-anchor", "middle")
