@@ -1,0 +1,12 @@
+body {
+  font-family: Arial, sans-serif;
+}
+
+.subtitle {
+  color: #555;
+  max-width: 760px;
+}
+
+.grid line {
+  stroke: #e5e5e5;
+}
