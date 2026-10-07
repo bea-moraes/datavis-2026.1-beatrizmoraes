@@ -18,12 +18,12 @@ var svg = d3.select("#my_dataviz")
 // salarial (calculado a partir do dataset; cada linha soma 100%).
 // ======================================================
 var data = [
-  { experiencia: "Menos de 1 ano", "Até R$ 6 mil": 75.7, "R$ 6.001 a R$ 12 mil": 17.1, "Acima de R$ 12 mil": 7.2 },
-  { experiencia: "1-2 anos",   "Até R$ 6 mil": 56.5, "R$ 6.001 a R$ 12 mil": 35.2, "Acima de R$ 12 mil": 8.4 },
-  { experiencia: "3-4 anos", "Até R$ 6 mil": 19.6, "R$ 6.001 a R$ 12 mil": 55.2, "Acima de R$ 12 mil": 25.2 },
-  { experiencia: "5-6 anos", "Até R$ 6 mil": 5.2,  "R$ 6.001 a R$ 12 mil": 35.5, "Acima de R$ 12 mil": 59.3 },
-  { experiencia: "7-10 anos",  "Até R$ 6 mil": 4.1,  "R$ 6.001 a R$ 12 mil": 26.4, "Acima de R$ 12 mil": 69.6 },
-  { experiencia: "Mais de 10 anos","Até R$ 6 mil": 2.1,  "R$ 6.001 a R$ 12 mil": 14.4, "Acima de R$ 12 mil": 83.6 }
+  { experiencia: "Menos de 1 ano",  n: 346,  "Até R$ 6 mil": 75.7, "R$ 6.001 a R$ 12 mil": 17.1, "Acima de R$ 12 mil": 7.2 },
+  { experiencia: "1-2 anos",        n: 944,  "Até R$ 6 mil": 56.5, "R$ 6.001 a R$ 12 mil": 35.2, "Acima de R$ 12 mil": 8.4 },
+  { experiencia: "3-4 anos",        n: 1386, "Até R$ 6 mil": 19.6, "R$ 6.001 a R$ 12 mil": 55.2, "Acima de R$ 12 mil": 25.2 },
+  { experiencia: "5-6 anos",        n: 830,  "Até R$ 6 mil": 5.2,  "R$ 6.001 a R$ 12 mil": 35.5, "Acima de R$ 12 mil": 59.3 },
+  { experiencia: "7-10 anos",       n: 542,  "Até R$ 6 mil": 4.1,  "R$ 6.001 a R$ 12 mil": 26.4, "Acima de R$ 12 mil": 69.6 },
+  { experiencia: "Mais de 10 anos", n: 585,  "Até R$ 6 mil": 2.1,  "R$ 6.001 a R$ 12 mil": 14.4, "Acima de R$ 12 mil": 83.6 }
 ];
 
 var keys = ["Até R$ 6 mil", "R$ 6.001 a R$ 12 mil", "Acima de R$ 12 mil"];
@@ -78,6 +78,14 @@ svg.append("text")
   .attr("x", width / 2)
   .attr("y", height + 70)
   .text("Tempo de experiência na área de dados");
+
+svg.append("text")
+  .attr("text-anchor", "middle")
+  .attr("x", width / 2)
+  .attr("y", height + 88)
+  .style("font-size", "11px")
+  .style("fill", "#777")
+  .text("n = número de respondentes em cada grupo de experiência");
 
 svg.append("text")
   .attr("transform", "rotate(-90)")
