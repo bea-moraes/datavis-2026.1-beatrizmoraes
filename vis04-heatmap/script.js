@@ -79,8 +79,7 @@ svg.append("g")
 
 var myColor = d3.scaleLinear()
   .domain([15, 30, 45])
-  .range(["#fff5f0", "#ef3b2c", "#67000d"]);
-
+  .range(["#f7fbff", "#4292c6", "#08306b"]);
 
 // -----------------------------------------------------
 // DADOS
@@ -187,7 +186,18 @@ svg.selectAll()
       .style("visibility", "hidden");
   });
 
-
+svg.selectAll()
+  .data(data)
+  .enter()
+  .append("text")
+  .attr("x", function(d) { return x(d.group) + x.bandwidth() / 2; })
+  .attr("y", function(d) { return y(d.variable) + y.bandwidth() / 2; })
+  .attr("text-anchor", "middle")
+  .attr("dominant-baseline", "middle")
+  .style("font-size", "14px")
+  .style("pointer-events", "none")
+  .style("fill", function(d) { return d.value > 30 ? "white" : "#222"; })
+  .text(function(d) { return d.value.toFixed(1).replace(".", ",") + "%"; });
 // -----------------------------------------------------
 // LEGENDA DAS CORES
 // -----------------------------------------------------
@@ -198,20 +208,9 @@ var defs = svg.append("defs");
 var linearGradient = defs.append("linearGradient")
   .attr("id", "legend-gradient");
 
-// Cor inicial
-linearGradient.append("stop")
-  .attr("offset", "0%")
-  .attr("stop-color", "#fff5f0");
-
-// Cor intermediária
-linearGradient.append("stop")
-  .attr("offset", "50%")
-  .attr("stop-color", "#ef3b2c");
-
-// Cor final
-linearGradient.append("stop")
-  .attr("offset", "100%")
-  .attr("stop-color", "#67000d");
+linearGradient.append("stop").attr("offset", "0%").attr("stop-color", "#f7fbff");
+linearGradient.append("stop").attr("offset", "50%").attr("stop-color", "#4292c6");
+linearGradient.append("stop").attr("offset", "100%").attr("stop-color", "#08306b");
 
 
 // Desenha a barra da legenda
