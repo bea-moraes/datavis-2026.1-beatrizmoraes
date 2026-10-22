@@ -186,18 +186,7 @@ svg.selectAll()
       .style("visibility", "hidden");
   });
 
-svg.selectAll()
-  .data(data)
-  .enter()
-  .append("text")
-  .attr("x", function(d) { return x(d.group) + x.bandwidth() / 2; })
-  .attr("y", function(d) { return y(d.variable) + y.bandwidth() / 2; })
-  .attr("text-anchor", "middle")
-  .attr("dominant-baseline", "middle")
-  .style("font-size", "14px")
-  .style("pointer-events", "none")
-  .style("fill", function(d) { return d.value > 30 ? "white" : "#222"; })
-  .text(function(d) { return d.value.toFixed(1).replace(".", ",") + "%"; });
+
 // -----------------------------------------------------
 // LEGENDA DAS CORES
 // -----------------------------------------------------
