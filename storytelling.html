@@ -24,13 +24,34 @@ nav a:hover{color:var(--ink)}
 header{padding:4rem 0 2.5rem}
 .hero{max-width:60rem;margin:0 auto;padding:0 1.25rem}
 h1{font:600 clamp(2rem,5vw,3.2rem)/1.12 var(--serif);letter-spacing:-.015em;margin:0 0 1rem;max-width:20ch}
-.byline{font:400 .95rem var(--sans);color:var(--muted);margin:0 0 2.5rem}
-.thesis{display:grid;gap:.55rem;max-width:44rem}
-.row{display:grid;grid-template-columns:4.5rem 1fr;align-items:center;gap:.75rem;font:500 .9rem var(--sans)}
-.bar{display:flex;height:2.1rem;border-radius:3px;overflow:hidden}
-.bar span{display:flex;align-items:center;justify-content:center;color:#10131a;font:600 .78rem var(--sans);min-width:0}
-.legend{display:flex;gap:1.2rem;flex-wrap:wrap;font:400 .85rem var(--sans);color:var(--muted);margin:.35rem 0 0 5.25rem}
-.legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:2px;margin-right:.4rem;vertical-align:-1px}
+.byline{font:400 .95rem var(--sans);color:var(--muted);margin:0 0 1.75rem}
+.map{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin:1.5rem 0 .5rem}
+.mgoal{background:var(--accent);color:#fff;padding:.8rem 1rem;border-radius:4px;font:600 1rem/1.35 var(--sans)}
+.mgoal small{display:block;font:400 .82rem var(--sans);opacity:.85;margin-bottom:.15rem}
+.mqs{border-left:2px solid var(--accent);margin:0 0 0 1.25rem;padding:.9rem 0 .2rem 1.25rem;display:grid;gap:.7rem}
+.mq{position:relative;display:block;background:var(--panel);color:var(--ink);text-decoration:none;padding:.7rem .9rem;border-radius:4px;font:400 .93rem/1.4 var(--sans);border:1px solid transparent}
+.mq::before{content:"";position:absolute;left:-1.25rem;top:50%;width:1.25rem;border-top:2px solid var(--accent)}
+.mq:hover{border-color:var(--accent)}
+.mq b{display:block;font-size:.85rem;color:var(--accent);margin-bottom:.1rem}
+.mq span{display:block;margin-top:.35rem;font-size:.82rem;color:var(--muted)}
+@media (max-width:640px){.map{grid-template-columns:1fr;gap:1.5rem}}
+.lead{font-size:1.2rem;line-height:1.55;max-width:40rem;margin:0}
+.who{margin-top:2.5rem;max-width:44rem}
+.whoh{font:600 1.15rem/1.35 var(--sans);margin:0 0 .8rem}
+.tabs{display:flex;gap:.5rem;margin-bottom:1.1rem;flex-wrap:wrap}
+.tabs button{font:500 .9rem var(--sans);padding:.4rem .9rem;border:1px solid var(--rule);background:var(--bg);color:var(--ink);border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+.whobody{display:flex;gap:2rem;align-items:flex-start;flex-wrap:wrap}
+.waffle{display:grid;grid-template-columns:repeat(10,1fr);gap:3px;width:min(20rem,100%);flex:0 0 auto}
+.waffle i{aspect-ratio:1;border-radius:2px;transition:opacity .15s}
+.waffle.dim i{opacity:.18}
+.waffle.dim i.on{opacity:1}
+.wlegend{list-style:none;margin:0;padding:0;font:400 .95rem var(--sans);min-width:15rem}
+.wlegend li{display:grid;grid-template-columns:.9rem 1fr auto;gap:.6rem;align-items:baseline;padding:.35rem 0;border-bottom:1px solid var(--rule)}
+.wlegend em{font-style:normal;display:inline-block;width:.9rem;height:.9rem;border-radius:2px}
+.wlegend b{font-variant-numeric:tabular-nums}
+.wlegend small{display:block;color:var(--muted);font-size:.8rem}
+.wnote{font:400 .92rem/1.5 var(--sans);color:var(--muted);margin:.9rem 0 0;max-width:22rem}
 .cap{font:400 .85rem var(--sans);color:var(--muted);margin:.75rem 0 0;max-width:44rem}
 section{padding:3rem 0;border-top:1px solid var(--rule)}
 h2{font:600 1.7rem/1.2 var(--serif);margin:0 0 1rem}
@@ -45,10 +66,6 @@ table{width:100%;border-collapse:collapse;font:400 .92rem var(--sans);margin:.5r
 th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
 th{font-weight:600;background:var(--panel)}
 td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
-.goal{background:var(--panel);padding:1.1rem 1.25rem;border-radius:4px;margin:0 0 1.25rem}
-.goal p{margin:0 0 .6rem;font-weight:600;font-family:var(--sans);font-size:1rem;line-height:1.5}
-.goal ul{margin:0;padding-left:1.1rem;font-family:var(--sans);font-size:.95rem;line-height:1.55}
-.goal li{margin:.25rem 0}
 .q{margin:2.5rem 0 0;padding-top:2rem;border-top:1px dashed var(--rule)}
 .q:first-of-type{border-top:0;padding-top:0}
 .q h3{margin-top:0}
@@ -72,13 +89,25 @@ footer{border-top:1px solid var(--rule);padding:2rem 0 4rem;font:400 .9rem/1.6 v
   <h1>A trajetória salarial na área de dados não é a mesma para todos</h1>
   <p class="byline">Beatriz Moraes · Visualização de Dados 2026.1</p>
 
-  <div class="thesis" role="img" aria-label="Distribuição de faixas salariais por senioridade: juniores 83,9% até R$ 6 mil; plenos 58,5% entre R$ 6.001 e 12 mil; sêniores 56,8% acima de R$ 12 mil.">
-    <div class="row">Júnior<div class="bar"><span style="flex:83.9;background:var(--low)">83,9%</span><span style="flex:14.7;background:var(--mid)">14,7%</span><span style="flex:1.4;background:var(--high)"></span></div></div>
-    <div class="row">Pleno<div class="bar"><span style="flex:32.2;background:var(--low)">32,2%</span><span style="flex:58.5;background:var(--mid)">58,5%</span><span style="flex:9.3;background:var(--high)">9,3%</span></div></div>
-    <div class="row">Sênior<div class="bar"><span style="flex:3.4;background:var(--low)"></span><span style="flex:39.8;background:var(--mid)">39,8%</span><span style="flex:56.8;background:var(--high)">56,8%</span></div></div>
-    <div class="legend"><span><i style="background:var(--low)"></i>Até R$ 6 mil</span><span><i style="background:var(--mid)"></i>R$ 6.001–12 mil</span><span><i style="background:var(--high)"></i>Acima de R$ 12 mil</span></div>
+  <p class="lead">Senioridade e experiência explicam grande parte da faixa salarial dos profissionais de dados no Brasil. Mas, dentro de um mesmo nível, gênero e raça/etnia mudam onde cada pessoa chega.</p>
+
+  <div class="who">
+    <h2 class="whoh">Quem são os 4.863 profissionais desta análise?</h2>
+    <div class="tabs" role="group" aria-label="Variável do perfil">
+      <button type="button" data-k="g" aria-pressed="true">Gênero</button>
+      <button type="button" data-k="r" aria-pressed="false">Raça/etnia</button>
+      <button type="button" data-k="n" aria-pressed="false">Senioridade</button>
+    </div>
+    <div class="whobody">
+      <div class="waffle" id="waffle" role="img" aria-label="Gráfico de 100 quadrados com a composição da amostra"></div>
+      <div>
+        <ul class="wlegend" id="wlegend"></ul>
+        <p class="wnote" id="wnote"></p>
+      </div>
+    </div>
+    <p class="cap">Cada quadrado representa cerca de 1% dos respondentes com faixa salarial informada. Este gráfico não responde a uma das perguntas: ele apresenta a amostra antes das análises.</p>
   </div>
-  <p class="cap">Percentual de profissionais de cada nível de senioridade em cada faixa salarial. A senioridade organiza a remuneração, e é a partir dessa regra geral que o trabalho procura as exceções.</p>
+
 </div></header>
 
 <main class="wrap">
@@ -95,7 +124,7 @@ footer{border-top:1px solid var(--rule);padding:2rem 0 4rem;font:400 .9rem/1.6 v
   <div class="kv">
     <div><b>5.217</b><span>respondentes na base</span></div>
     <div><b>4.863</b><span>com faixa salarial informada</span></div>
-    <div><b>5 de 403</b><span>variáveis usadas</span></div>
+    <div><b>5 de ~400</b><span>variáveis usadas</span></div>
   </div>
   <table>
     <thead><tr><th>Variável</th><th>Campo original</th><th>Papel</th></tr></thead>
@@ -112,21 +141,24 @@ footer{border-top:1px solid var(--rule);padding:2rem 0 4rem;font:400 .9rem/1.6 v
 
 <section id="metas">
   <h2>Metas e perguntas norteadoras</h2>
-  <p>O projeto parte de duas metas. A primeira estabelece o que determina a remuneração, e a segunda verifica se essa regra vale igualmente para todos.</p>
-  <div class="goal">
-    <p>Meta 1. Analisar os fatores associados à remuneração dos profissionais da área de dados no Brasil.</p>
-    <ul>
-      <li><b>Q1.</b> Como a faixa salarial varia de acordo com a senioridade do profissional?</li>
-      <li><b>Q2.</b> Qual é a relação entre o tempo de experiência na área de dados e a faixa salarial?</li>
-    </ul>
+  <p>O projeto parte de duas metas. A primeira estabelece o que determina a remuneração, e a segunda verifica se essa regra vale igualmente para todos. Cada pergunta norteadora foi respondida por uma visualização.</p>
+  <div class="map" aria-label="Metas, perguntas e visualizações">
+    <div class="mcol">
+      <div class="mgoal"><small>Meta 1</small>Analisar os fatores associados à remuneração dos profissionais da área de dados no Brasil.</div>
+      <div class="mqs">
+        <a class="mq" href="https://bea-moraes.github.io/datavis-2026.1-beatrizmoraes/vis01-sankey/"><b>Q1</b>Como a faixa salarial varia de acordo com a senioridade do profissional?<span>Sankey</span></a>
+        <a class="mq" href="https://bea-moraes.github.io/datavis-2026.1-beatrizmoraes/vis02-linhas/"><b>Q2</b>Qual é a relação entre o tempo de experiência na área de dados e a faixa salarial?<span>Gráfico de linhas</span></a>
+      </div>
+    </div>
+    <div class="mcol">
+      <div class="mgoal"><small>Meta 2</small>Identificar desigualdades salariais entre diferentes perfis de profissionais da área de dados.</div>
+      <div class="mqs">
+        <a class="mq" href="https://bea-moraes.github.io/datavis-2026.1-beatrizmoraes/vis03-pontos/"><b>Q3</b>Existe diferença na distribuição das faixas salariais entre homens e mulheres de mesma senioridade?<span>Gráfico de pontos</span></a>
+        <a class="mq" href="https://bea-moraes.github.io/datavis-2026.1-beatrizmoraes/vis04-heatmap/"><b>Q4</b>Como a faixa salarial varia entre diferentes grupos de raça/etnia?<span>Mapa de calor</span></a>
+      </div>
+    </div>
   </div>
-  <div class="goal">
-    <p>Meta 2. Identificar desigualdades salariais entre diferentes perfis de profissionais da área de dados.</p>
-    <ul>
-      <li><b>Q3.</b> Existe diferença na distribuição das faixas salariais entre homens e mulheres de mesma senioridade?</li>
-      <li><b>Q4.</b> Como a faixa salarial varia entre diferentes grupos de raça/etnia?</li>
-    </ul>
-  </div>
+  <p class="cap">Clique em uma pergunta para abrir a visualização correspondente.</p>
 </section>
 
 <section id="parte1">
@@ -207,6 +239,7 @@ footer{border-top:1px solid var(--rule);padding:2rem 0 4rem;font:400 .9rem/1.6 v
 <section id="limites">
   <h2>Limitações</h2>
   <p>A pesquisa é voluntária, então a amostra não representa todos os profissionais da área. Respondentes sem senioridade informada (cerca de 1.400) ficam fora das análises de Q1 e Q3. Foram excluídas as categorias “Prefiro não informar”, “Outro” e “Indígena” (n=10), pelo tamanho reduzido. As mulheres são minoria em cada nível (242, 366 e 335 respondentes), e os grupos amarelo e preto também têm amostras menores, o que torna seus percentuais menos estáveis.</p>
+  <p>A Q4 não controla por senioridade. Parte da diferença entre grupos raciais pode refletir a composição de cada grupo por nível, e por isso os resultados descrevem desigualdade de distribuição e não identificam causas.</p>
 </section>
 
 </main>
@@ -216,5 +249,34 @@ footer{border-top:1px solid var(--rule);padding:2rem 0 4rem;font:400 .9rem/1.6 v
   Dados: Data Hackers e Bain, <em>State of Data Brazil 2024–2025</em>, via Kaggle.
 </div></footer>
 
+<script>
+(function(){
+var D={
+g:{note:"Três em cada quatro respondentes são homens. Por isso as comparações usam sempre o percentual dentro de cada grupo.",
+   it:[["Mulheres",1142,"#7b2cbf"],["Homens",3700,"#f58220"],["Outro / não informado",21,"#b8bcc6"]]},
+r:{note:"Pessoas pretas e amarelas somam menos de 10% da amostra, o que torna seus percentuais menos estáveis.",
+   it:[["Branca",3284,"#2d3a8c"],["Parda",1067,"#5ec2a1"],["Preta",309,"#f2915f"],["Amarela",152,"#8f9bd0"],["Outra / não informada",51,"#b8bcc6"]]},
+n:{note:"21,5% não informaram o nível e ficam fora das análises de senioridade (Q1 e Q3).",
+   it:[["Júnior",868,"#5ec2a1"],["Pleno",1377,"#f2915f"],["Sênior",1573,"#8f9bd0"],["Sem nível informado",1045,"#b8bcc6"]]}
+};
+var T=4863,W=document.getElementById("waffle"),L=document.getElementById("wlegend"),N=document.getElementById("wnote");
+function pct(v){return v.toFixed(1).replace(".",",")+"%"}
+function alloc(it){var a=it.map(function(x,i){var e=x[1]/T*100;return{i:i,f:Math.floor(e),r:e-Math.floor(e)}});
+ var left=100-a.reduce(function(s,x){return s+x.f},0);
+ a.slice().sort(function(p,q){return q.r-p.r}).slice(0,left).forEach(function(x){a[x.i].f++});
+ return a.map(function(x){return x.f})}
+function draw(k){var d=D[k],c=alloc(d.it),h="",l="";
+ d.it.forEach(function(x,i){for(var j=0;j<c[i];j++)h+='<i data-i="'+i+'" style="background:'+x[2]+'"></i>';
+  l+='<li tabindex="0" data-i="'+i+'"><em style="background:'+x[2]+'"></em><span>'+x[0]+'<small>'+x[1].toLocaleString("pt-BR")+' pessoas</small></span><b>'+pct(x[1]/T*100)+'</b></li>'});
+ W.innerHTML=h;L.innerHTML=l;N.textContent=d.note;W.classList.remove("dim");
+ [].forEach.call(L.children,function(li){
+  function on(){W.classList.add("dim");[].forEach.call(W.children,function(q){q.classList.toggle("on",q.dataset.i===li.dataset.i)})}
+  function off(){W.classList.remove("dim")}
+  li.addEventListener("mouseenter",on);li.addEventListener("focus",on);li.addEventListener("mouseleave",off);li.addEventListener("blur",off)})}
+[].forEach.call(document.querySelectorAll(".tabs button"),function(b){b.addEventListener("click",function(){
+ [].forEach.call(document.querySelectorAll(".tabs button"),function(o){o.setAttribute("aria-pressed",o===b)});draw(b.dataset.k)})});
+draw("g");
+})();
+</script>
 </body>
 </html>
