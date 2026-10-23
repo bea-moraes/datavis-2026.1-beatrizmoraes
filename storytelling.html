@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remuneração e desigualdade na área de dados no Brasil</title>
+<style>
+:root{
+  --bg:#ffffff; --ink:#14181f; --muted:#586070; --rule:#dcdfe5; --panel:#f1f3f6;
+  --low:#5ec2a1; --mid:#f2915f; --high:#8f9bd0; --accent:#2d3a8c;
+  --serif:Arial,Helvetica,sans-serif;
+  --sans:Arial,Helvetica,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:1rem/1.65 var(--serif)}
+a{color:var(--accent)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:44rem;margin:0 auto;padding:0 1.25rem}
+nav{border-bottom:1px solid var(--rule);font:500 .9rem var(--sans);position:sticky;top:0;background:var(--bg);z-index:5}
+nav .wrap{display:flex;gap:1.25rem;flex-wrap:wrap;padding-top:.7rem;padding-bottom:.7rem;max-width:60rem}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--ink)}
+header{padding:4rem 0 2.5rem}
+.hero{max-width:60rem;margin:0 auto;padding:0 1.25rem}
+h1{font:600 clamp(2rem,5vw,3.2rem)/1.12 var(--serif);letter-spacing:-.015em;margin:0 0 1rem;max-width:20ch}
+.byline{font:400 .95rem var(--sans);color:var(--muted);margin:0 0 2.5rem}
+.thesis{display:grid;gap:.55rem;max-width:44rem}
+.row{display:grid;grid-template-columns:4.5rem 1fr;align-items:center;gap:.75rem;font:500 .9rem var(--sans)}
+.bar{display:flex;height:2.1rem;border-radius:3px;overflow:hidden}
+.bar span{display:flex;align-items:center;justify-content:center;color:#10131a;font:600 .78rem var(--sans);min-width:0}
+.legend{display:flex;gap:1.2rem;flex-wrap:wrap;font:400 .85rem var(--sans);color:var(--muted);margin:.35rem 0 0 5.25rem}
+.legend i{display:inline-block;width:.8rem;height:.8rem;border-radius:2px;margin-right:.4rem;vertical-align:-1px}
+.cap{font:400 .85rem var(--sans);color:var(--muted);margin:.75rem 0 0;max-width:44rem}
+section{padding:3rem 0;border-top:1px solid var(--rule)}
+h2{font:600 1.7rem/1.2 var(--serif);margin:0 0 1rem}
+h3{font:600 1.15rem/1.35 var(--sans);margin:2.5rem 0 .6rem}
+p{margin:0 0 1rem}
+.sans{font-family:var(--sans)}
+.kv{display:grid;grid-template-columns:repeat(auto-fit,minmax(9rem,1fr));gap:1rem;margin:1.5rem 0;font-family:var(--sans)}
+.kv div{border-left:3px solid var(--rule);padding-left:.8rem}
+.kv b{display:block;font:600 1.6rem/1.2 var(--serif)}
+.kv span{font-size:.85rem;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font:400 .92rem var(--sans);margin:.5rem 0 1.25rem}
+th,td{text-align:left;padding:.45rem .6rem;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-weight:600;background:var(--panel)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+.goal{background:var(--panel);padding:1.1rem 1.25rem;border-radius:4px;margin:0 0 1.25rem}
+.goal p{margin:0 0 .6rem;font-weight:600;font-family:var(--sans);font-size:1rem;line-height:1.5}
+.goal ul{margin:0;padding-left:1.1rem;font-family:var(--sans);font-size:.95rem;line-height:1.55}
+.goal li{margin:.25rem 0}
+.q{margin:2.5rem 0 0;padding-top:2rem;border-top:1px dashed var(--rule)}
+.q:first-of-type{border-top:0;padding-top:0}
+.q h3{margin-top:0}
+.meta{font:400 .92rem/1.55 var(--sans);color:var(--muted);margin:0 0 1rem}
+.btn{display:inline-block;font:500 .95rem var(--sans);background:var(--accent);color:#fff;text-decoration:none;padding:.6rem 1rem;border-radius:4px;margin:.25rem 0 0}
+.btn:hover{filter:brightness(1.12)}
+.finding{border-left:3px solid var(--accent);padding:.1rem 0 .1rem 1rem;margin:1.25rem 0}
+ol.concl{padding-left:1.2rem}
+ol.concl li{margin:0 0 .8rem}
+footer{border-top:1px solid var(--rule);padding:2rem 0 4rem;font:400 .9rem/1.6 var(--sans);color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav aria-label="Seções"><div class="wrap">
+  <a href="#resumo">Resumo</a><a href="#dados">Dados</a><a href="#metas">Metas e perguntas</a>
+  <a href="#parte1">Parte 1</a><a href="#parte2">Parte 2</a><a href="#conclusao">Conclusão</a><a href="#limites">Limitações</a>
+</div></nav>
+
+<header><div class="hero">
+  <h1>A trajetória salarial na área de dados não é a mesma para todos</h1>
+  <p class="byline">Beatriz Moraes · Visualização de Dados 2026.1</p>
+
+  <div class="thesis" role="img" aria-label="Distribuição de faixas salariais por senioridade: juniores 83,9% até R$ 6 mil; plenos 58,5% entre R$ 6.001 e 12 mil; sêniores 56,8% acima de R$ 12 mil.">
+    <div class="row">Júnior<div class="bar"><span style="flex:83.9;background:var(--low)">83,9%</span><span style="flex:14.7;background:var(--mid)">14,7%</span><span style="flex:1.4;background:var(--high)"></span></div></div>
+    <div class="row">Pleno<div class="bar"><span style="flex:32.2;background:var(--low)">32,2%</span><span style="flex:58.5;background:var(--mid)">58,5%</span><span style="flex:9.3;background:var(--high)">9,3%</span></div></div>
+    <div class="row">Sênior<div class="bar"><span style="flex:3.4;background:var(--low)"></span><span style="flex:39.8;background:var(--mid)">39,8%</span><span style="flex:56.8;background:var(--high)">56,8%</span></div></div>
+    <div class="legend"><span><i style="background:var(--low)"></i>Até R$ 6 mil</span><span><i style="background:var(--mid)"></i>R$ 6.001–12 mil</span><span><i style="background:var(--high)"></i>Acima de R$ 12 mil</span></div>
+  </div>
+  <p class="cap">Percentual de profissionais de cada nível de senioridade em cada faixa salarial. A senioridade organiza a remuneração, e é a partir dessa regra geral que o trabalho procura as exceções.</p>
+</div></header>
+
+<main class="wrap">
+
+<section id="resumo">
+  <h2>Resumo</h2>
+  <p>Este trabalho usa uma pesquisa com profissionais brasileiros de dados para responder a duas perguntas amplas: <em>o que explica a remuneração nessa área?</em> e <em>essa remuneração é distribuída de forma desigual entre perfis diferentes de profissionais?</em></p>
+  <p>Cada uma das quatro perguntas norteadoras foi respondida por uma visualização escolhida de acordo com o tipo de dado e de comparação envolvidos. As visualizações estão publicadas em páginas separadas, e esta página reúne a narrativa que as conecta.</p>
+</section>
+
+<section id="dados">
+  <h2>Dados</h2>
+  <p>A fonte é o <em>State of Data Brazil 2024</em>, mapeamento do mercado brasileiro de dados e IA realizado pela Data Hackers em parceria com a Bain e disponibilizado no <a href="https://www.kaggle.com/datasets/datahackers/state-of-data-brazil-20242025">Kaggle</a>.</p>
+  <div class="kv">
+    <div><b>5.217</b><span>respondentes na base</span></div>
+    <div><b>4.863</b><span>com faixa salarial informada</span></div>
+    <div><b>5 de 403</b><span>variáveis usadas</span></div>
+  </div>
+  <table>
+    <thead><tr><th>Variável</th><th>Campo original</th><th>Papel</th></tr></thead>
+    <tbody>
+      <tr><td>Faixa salarial</td><td>2.h_faixa_salarial</td><td>Variável de resposta</td></tr>
+      <tr><td>Senioridade</td><td>2.g_nivel</td><td>Júnior, Pleno, Sênior</td></tr>
+      <tr><td>Tempo de experiência em dados</td><td>2.i_tempo_de_experiencia_em_dados</td><td>Faixas ordenadas de tempo</td></tr>
+      <tr><td>Gênero</td><td>1.b_genero</td><td>Mulheres e homens</td></tr>
+      <tr><td>Cor, raça ou etnia</td><td>1.c_cor/raca/etnia</td><td>Categorias do IBGE</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Tratamento.</strong> As 13 faixas originais foram agrupadas em três: <em>até R$ 6 mil</em>, <em>R$ 6.001 a 12 mil</em> e <em>acima de R$ 12 mil</em>. Em todas as visualizações, a medida é o <em>percentual dentro de cada grupo</em> (contagem do grupo na faixa dividida pelo total do grupo). Isso permite comparar grupos de tamanhos muito diferentes, como 152 pessoas amarelas e 3.284 brancas.</p>
+</section>
+
+<section id="metas">
+  <h2>Metas e perguntas norteadoras</h2>
+  <p>O projeto parte de duas metas. A primeira estabelece o que determina a remuneração, e a segunda verifica se essa regra vale igualmente para todos.</p>
+  <div class="goal">
+    <p>Meta 1. Analisar os fatores associados à remuneração dos profissionais da área de dados no Brasil.</p>
+    <ul>
+      <li><b>Q1.</b> Como a faixa salarial varia de acordo com a senioridade do profissional?</li>
+      <li><b>Q2.</b> Qual é a relação entre o tempo de experiência na área de dados e a faixa salarial?</li>
+    </ul>
+  </div>
+  <div class="goal">
+    <p>Meta 2. Identificar desigualdades salariais entre diferentes perfis de profissionais da área de dados.</p>
+    <ul>
+      <li><b>Q3.</b> Existe diferença na distribuição das faixas salariais entre homens e mulheres de mesma senioridade?</li>
+      <li><b>Q4.</b> Como a faixa salarial varia entre diferentes grupos de raça/etnia?</li>
+    </ul>
+  </div>
+</section>
+
+<section id="parte1">
+  <h2>Parte 1. O que organiza a remuneração</h2>
+
+  <div class="q">
+    <h3>Q1. Senioridade e faixa salarial</h3>
+    <p class="meta"><b>Escolha visual:</b> diagrama de Sankey. A pergunta trata de proporções que fluem de uma categoria (senioridade) para outra (faixa salarial), e a espessura do fluxo codifica o percentual.</p>
+    <p>A senioridade separa a distribuição quase por completo. A maior parte dos juniores está na faixa mais baixa, os plenos se concentram na faixa intermediária e os sêniores se dividem entre a intermediária e a mais alta.</p>
+    <table>
+      <thead><tr><th>Nível</th><th class="n">Até R$ 6 mil</th><th class="n">R$ 6.001–12 mil</th><th class="n">Acima de R$ 12 mil</th></tr></thead>
+      <tbody>
+        <tr><td>Júnior (n=868)</td><td class="n">83,9%</td><td class="n">14,7%</td><td class="n">1,4%</td></tr>
+        <tr><td>Pleno (n=1.377)</td><td class="n">32,2%</td><td class="n">58,5%</td><td class="n">9,3%</td></tr>
+        <tr><td>Sênior (n=1.573)</td><td class="n">3,4%</td><td class="n">39,8%</td><td class="n">56,8%</td></tr>
+      </tbody>
+    </table>
+    <a class="btn" href="https://bea-moraes.github.io/datavis-2026.1-beatrizmoraes/vis01-sankey/">Abrir o Sankey</a>
+  </div>
+
+  <div class="q">
+    <h3>Q2. Tempo de experiência e faixa salarial</h3>
+    <p class="meta"><b>Escolha visual:</b> gráfico de linhas. O tempo de experiência é uma variável ordenada, então a posição horizontal e a inclinação das linhas mostram a evolução entre os grupos.</p>
+    <p>Com menos de 1 ano de experiência, 75,7% estão na faixa mais baixa. A faixa intermediária atinge o pico entre 3 e 4 anos (55,2%). A partir de 5–6 anos, a faixa mais alta passa a ser a mais comum, e chega a 83,6% entre quem tem mais de 10 anos. As curvas se cruzam entre 3 e 4 anos, que é o ponto de virada da carreira nesses dados.</p>
+    <a class="btn" href="https://bea-moraes.github.io/datavis-2026.1-beatrizmoraes/vis02-linhas/">Abrir o gráfico de linhas</a>
+  </div>
+
+  <div class="finding"><b>Resposta à Meta 1.</b> Senioridade e experiência caminham juntas e explicam grande parte da faixa salarial. Pessoas no mesmo nível, portanto, deveriam estar em faixas parecidas, e é isso que a Parte 2 testa.</div>
+</section>
+
+<section id="parte2">
+  <h2>Parte 2. Quem a regra atinge de forma diferente</h2>
+
+  <div class="q">
+    <h3>Q3. Gênero dentro da mesma senioridade</h3>
+    <p class="meta"><b>Escolha visual:</b> gráfico de pontos conectados (<em>dumbbell</em>) em três painéis. Comparar dois valores pareados por faixa é o caso em que a distância entre pontos comunica melhor a diferença, e os painéis mantêm a senioridade constante.</p>
+    <p>Entre juniores, mulheres e homens estão praticamente na mesma distribuição. A diferença aparece no nível pleno e se amplia no sênior, onde mais homens estão acima de R$ 12 mil e mais mulheres permanecem na faixa intermediária.</p>
+    <table>
+      <thead><tr><th>Percentual acima de R$ 12 mil</th><th class="n">Mulheres</th><th class="n">Homens</th><th class="n">Diferença</th></tr></thead>
+      <tbody>
+        <tr><td>Júnior</td><td class="n">1,7%</td><td class="n">1,1%</td><td class="n">+0,6 p.p.</td></tr>
+        <tr><td>Pleno</td><td class="n">6,0%</td><td class="n">10,5%</td><td class="n">−4,5 p.p.</td></tr>
+        <tr><td>Sênior</td><td class="n">46,3%</td><td class="n">59,9%</td><td class="n">−13,6 p.p.</td></tr>
+      </tbody>
+    </table>
+    <a class="btn" href="https://bea-moraes.github.io/datavis-2026.1-beatrizmoraes/vis03-pontos/">Abrir o gráfico de pontos</a>
+  </div>
+
+  <div class="q">
+    <h3>Q4. Raça/etnia e faixa salarial</h3>
+    <p class="meta"><b>Escolha visual:</b> mapa de calor. São duas variáveis categóricas (grupo racial e faixa) cruzadas, e a intensidade da cor codifica o percentual dentro de cada grupo.</p>
+    <p>A faixa intermediária é parecida entre os grupos (35,0% a 37,5%). A diferença está nos extremos. Entre pessoas pretas, 36,2% estão na faixa mais baixa e 28,8% na mais alta. Entre pessoas amarelas, a relação se inverte: 17,8% e 44,7%. Pessoas brancas e pardas ficam entre os dois.</p>
+    <table>
+      <thead><tr><th>Grupo</th><th class="n">Até R$ 6 mil</th><th class="n">R$ 6.001–12 mil</th><th class="n">Acima de R$ 12 mil</th></tr></thead>
+      <tbody>
+        <tr><td>Amarela (n=152)</td><td class="n">17,8%</td><td class="n">37,5%</td><td class="n">44,7%</td></tr>
+        <tr><td>Branca (n=3.284)</td><td class="n">24,5%</td><td class="n">35,4%</td><td class="n">40,0%</td></tr>
+        <tr><td>Parda (n=1.067)</td><td class="n">30,9%</td><td class="n">36,9%</td><td class="n">32,1%</td></tr>
+        <tr><td>Preta (n=309)</td><td class="n">36,2%</td><td class="n">35,0%</td><td class="n">28,8%</td></tr>
+      </tbody>
+    </table>
+    <a class="btn" href="https://bea-moraes.github.io/datavis-2026.1-beatrizmoraes/vis04-heatmap/">Abrir o mapa de calor</a>
+  </div>
+
+  <div class="finding"><b>Resposta à Meta 2.</b> Há desigualdade nos dois recortes. Em gênero, a diferença se acumula ao longo da senioridade. Em raça/etnia, a distribuição se desloca em direção às faixas mais baixas para pessoas pretas e pardas.</div>
+</section>
+
+<section id="conclusao">
+  <h2>Conclusão</h2>
+  <ol class="concl">
+    <li>A remuneração segue um caminho previsível. Senioridade e tempo de experiência concentram a maior parte da variação, e a virada ocorre entre 3 e 4 anos de experiência.</li>
+    <li>Esse caminho não é igual para todos. Mesmo dentro de um mesmo nível, as distribuições de gênero e de raça/etnia diferem.</li>
+    <li>A diferença de gênero é pequena na entrada e cresce com a senioridade. Isso aponta para um problema de <em>progressão</em> e não de ponto de partida.</li>
+    <li>Do ponto de vista da visualização, cada pergunta pedia uma forma diferente: fluxo para proporções entre categorias, linhas para ordem temporal, pontos pareados para comparação direta e matriz de cor para cruzamento de categorias.</li>
+  </ol>
+</section>
+
+<section id="limites">
+  <h2>Limitações</h2>
+  <p>A pesquisa é voluntária, então a amostra não representa todos os profissionais da área. Respondentes sem senioridade informada (cerca de 1.400) ficam fora das análises de Q1 e Q3. Foram excluídas as categorias “Prefiro não informar”, “Outro” e “Indígena” (n=10), pelo tamanho reduzido. As mulheres são minoria em cada nível (242, 366 e 335 respondentes), e os grupos amarelo e preto também têm amostras menores, o que torna seus percentuais menos estáveis.</p>
+</section>
+
+</main>
+
+<footer><div class="wrap">
+  Código das visualizações: <a href="https://github.com/bea-moraes/datavis-2026.1-beatrizmoraes">github.com/bea-moraes/datavis-2026.1-beatrizmoraes</a>.<br>
+  Dados: Data Hackers e Bain, <em>State of Data Brazil 2024–2025</em>, via Kaggle.
+</div></footer>
+
+</body>
+</html>
